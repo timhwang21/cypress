@@ -6,7 +6,7 @@
   "scripts": {
     "prebuild": "yarn postinstall && node ./scripts/start-build.js",
     "build": "node ./scripts/build.js",
-    "dtslint": "dtslint types",
+    "dtslint": "dtslint types --localTs node_modules/typescript/lib",
     "postinstall": "node ./scripts/post-install.js",
     "prerelease": "yarn build",
     "release": "cd build && releaser --no-node --no-changelog",
@@ -91,7 +91,8 @@
     "sinon": "7.2.2",
     "snap-shot-it": "7.9.2",
     "spawn-mock": "1.0.0",
-    "strip-ansi": "4.0.0"
+    "strip-ansi": "4.0.0",
+    "typescript": "3.8.3"
   },
   "files": [
     "bin",
