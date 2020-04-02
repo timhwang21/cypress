@@ -46,6 +46,10 @@ declare module 'cypress' {
      * A String or Array of string glob pattern of the test files to load.
      */
     testFiles: string | string[]
+    /**
+     * The delay between each keypress when calling `type()`. Default is 10
+     */
+    typeDelay: number,
 
     //
     // timeouts

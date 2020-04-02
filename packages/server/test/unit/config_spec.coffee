@@ -357,6 +357,15 @@ describe "lib/config", ->
           @setup({trashAssetsBeforeRuns: 42})
           @expectValidationFails("be a boolean")
 
+      context "typeDelay", ->
+        it "passes if a number", ->
+          @setup({typeDelay: 10})
+          @expectValidationPasses()
+
+        it "fails if not a number", ->
+          @setup({videoCompression: "foo"})
+          @expectValidationFails("be a number")
+
       context "videoCompression", ->
         it "passes if a number", ->
           @setup({videoCompression: 10})
@@ -655,6 +664,9 @@ describe "lib/config", ->
     it "reporter=spec", ->
       @defaults "reporter", "spec"
 
+    it "typeDelay=10", ->
+      @defaults "typeDelay", 10
+
     it "watchForFileChanges=true", ->
       @defaults "watchForFileChanges", true
 
@@ -803,6 +815,7 @@ describe "lib/config", ->
             waitForAnimations:          { value: true, from: "default" },
             animationDistanceThreshold: { value: 5, from: "default" },
             trashAssetsBeforeRuns:      { value: true, from: "default" },
+            typeDelay:                  { value: 10, from: "default" },
             watchForFileChanges:        { value: true, from: "default" },
             modifyObstructiveCode:      { value: true, from: "default" },
             chromeWebSecurity:          { value: true, from: "default" },
@@ -873,6 +886,7 @@ describe "lib/config", ->
             waitForAnimations:          { value: true, from: "default" },
             animationDistanceThreshold: { value: 5, from: "default" },
             trashAssetsBeforeRuns:      { value: true, from: "default" },
+            typeDelay:                  { value: 10, from: "default" },
             watchForFileChanges:        { value: true, from: "default" },
             modifyObstructiveCode:      { value: true, from: "default" },
             chromeWebSecurity:          { value: true, from: "default" },

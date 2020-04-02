@@ -67,6 +67,7 @@ configKeys = toWords """
   ignoreTestFiles
   testFiles                       defaultCommandTimeout
   trashAssetsBeforeRuns           execTimeout
+  typeDelay
   userAgent                       pageLoadTimeout
   viewportWidth                   requestTimeout
   viewportHeight                  responseTimeout
@@ -131,6 +132,7 @@ CONFIG_DEFAULTS = {
   waitForAnimations:             true
   animationDistanceThreshold:    5
   numTestsKeptInMemory:          50
+  typeDelay:                     10
   watchForFileChanges:           true
   trashAssetsBeforeRuns:         true
   autoOpen:                      false
@@ -184,6 +186,7 @@ validationRules = {
   taskTimeout: v.isNumber
   testFiles: v.isStringOrArrayOfStrings
   trashAssetsBeforeRuns: v.isBoolean
+  typeDelay: v.isNumber
   userAgent: v.isString
   video: v.isBoolean
   videoCompression: v.isNumberOrFalse

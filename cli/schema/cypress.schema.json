@@ -50,6 +50,11 @@
       "default": "**/*.*",
       "description": "A String or Array of string glob patterns of the test files to load. See https://on.cypress.io/configuration#Global"
     },
+    "typeDelay": {
+      "type": "number",
+      "default": 10,
+      "description": "Whether to take a screenshot on test failure when running headlessly or in CI"
+    },
     "watchForFileChanges": {
       "type": "boolean",
       "default": true,

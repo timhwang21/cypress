@@ -92,7 +92,6 @@
       "path": "/Applications/Firefox Nightly/Contents/MacOS/Firefox Nightly",
       "majorVersion": "69"
     },
-
     {
       "name": "custom",
       "displayName": "Custom",
@@ -137,6 +136,7 @@
   "requestTimeout": 5000,
   "resolvedNodePath": null,
   "resolvedNodeVersion": "1.2.3",
+  "typeDelay": 10,
   "hosts": {
     "*.foobar.com": "127.0.0.1"
   },

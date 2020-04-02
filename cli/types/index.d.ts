@@ -27,7 +27,7 @@
 
 // Cypress, cy, Log inherits EventEmitter.
 type EventEmitter2 = import("eventemitter2").EventEmitter2
-type Bluebird<R> = import("bluebird")<R>
+type Bluebird<R> = import("bluebird") <R>
 
 type Nullable<T> = T | null
 
@@ -152,9 +152,9 @@ declare namespace Cypress {
   interface ElementCoordinates {
     width: number
     height: number
-    fromElViewport: ViewportPosition & { x: number, y: number }
-    fromElWindow: WindowPosition & { x: number, y: number }
-    fromAutWindow: WindowPosition & { x: number, y: number }
+    fromElViewport: ViewportPosition & {x: number, y: number}
+    fromElWindow: WindowPosition & {x: number, y: number}
+    fromAutWindow: WindowPosition & {x: number, y: number}
   }
 
   /**
@@ -428,7 +428,7 @@ declare namespace Cypress {
        * Returns a boolean indicating whether an object is a DOM object.
        */
       isDom(obj: any): boolean
-      isType(element: JQuery | HTMLElement , type: string): boolean
+      isType(element: JQuery | HTMLElement, type: string): boolean
       /**
        * Returns a boolean indicating whether an element is visible.
        */
@@ -662,36 +662,36 @@ declare namespace Cypress {
     ```
      */
     clearLocalStorage(re: RegExp): Chainable<Storage>
-   /**
-     * Clear data in local storage.
-     * Cypress automatically runs this command before each test to prevent state from being
-     * shared across tests. You shouldn’t need to use this command unless you’re using it
-     * to clear localStorage inside a single test. Yields `localStorage` object.
-     *
-     * @see https://on.cypress.io/clearlocalstorage
-     * @param {options} [object] - options object
-     * @example
-      ```
-      // Removes all local storage items, without logging
-      cy.clearLocalStorage({ log: false })
-      ```
-     */
+    /**
+      * Clear data in local storage.
+      * Cypress automatically runs this command before each test to prevent state from being
+      * shared across tests. You shouldn’t need to use this command unless you’re using it
+      * to clear localStorage inside a single test. Yields `localStorage` object.
+      *
+      * @see https://on.cypress.io/clearlocalstorage
+      * @param {options} [object] - options object
+      * @example
+       ```
+       // Removes all local storage items, without logging
+       cy.clearLocalStorage({ log: false })
+       ```
+      */
     clearLocalStorage(options: Partial<Loggable>): Chainable<Storage>
-   /**
-     * Clear data in local storage.
-     * Cypress automatically runs this command before each test to prevent state from being
-     * shared across tests. You shouldn’t need to use this command unless you’re using it
-     * to clear localStorage inside a single test. Yields `localStorage` object.
-     *
-     * @see https://on.cypress.io/clearlocalstorage
-     * @param {string} [key] - name of a particular item to remove (optional).
-     * @param {options} [object] - options object
-     * @example
-      ```
-      // Removes item "todos" without logging
-      cy.clearLocalStorage("todos", { log: false })
-      ```
-     */
+    /**
+      * Clear data in local storage.
+      * Cypress automatically runs this command before each test to prevent state from being
+      * shared across tests. You shouldn’t need to use this command unless you’re using it
+      * to clear localStorage inside a single test. Yields `localStorage` object.
+      *
+      * @see https://on.cypress.io/clearlocalstorage
+      * @param {string} [key] - name of a particular item to remove (optional).
+      * @param {options} [object] - options object
+      * @example
+       ```
+       // Removes item "todos" without logging
+       cy.clearLocalStorage("todos", { log: false })
+       ```
+      */
     clearLocalStorage(key: string, options: Partial<Loggable>): Chainable<Storage>
 
     /**
@@ -1109,13 +1109,13 @@ declare namespace Cypress {
     invoke<T extends (...args: any[]) => any, Subject extends T[]>(index: number): Chainable<ReturnType<T>>
     invoke<T extends (...args: any[]) => any, Subject extends T[]>(options: Loggable, index: number): Chainable<ReturnType<T>>
 
-     /**
-     * Invoke a function on the previously yielded subject by a property path.
-     * Property path invocation cannot be strongly-typed.
-     * Invoking by a property path will always result in any.
-     *
-     * @see https://on.cypress.io/invoke
-     */
+    /**
+    * Invoke a function on the previously yielded subject by a property path.
+    * Property path invocation cannot be strongly-typed.
+    * Invoking by a property path will always result in any.
+    *
+    * @see https://on.cypress.io/invoke
+    */
     invoke(propertyPath: string, ...args: any[]): Chainable
 
     /**
@@ -1955,7 +1955,7 @@ declare namespace Cypress {
      *
      */
     visit(url: string, options?: Partial<VisitOptions>): Chainable<Window>
-    visit(options: Partial<VisitOptions> & { url: string }): Chainable<Window>
+    visit(options: Partial<VisitOptions> & {url: string}): Chainable<Window>
 
     /**
      * Wait for a number of milliseconds.
@@ -2265,7 +2265,7 @@ declare namespace Cypress {
     force: boolean
   }
 
-  interface BlurOptions extends Loggable, Forceable { }
+  interface BlurOptions extends Loggable, Forceable {}
 
   interface CheckOptions extends Loggable, Timeoutable, Forceable {
     interval: number
@@ -2297,7 +2297,7 @@ declare namespace Cypress {
      * Any values to be set as [environment variables](https://docs.cypress.io/guides/guides/environment-variables.html)
      * @default {}
      */
-    env: { [key: string]: any }
+    env: {[key: string]: any}
     /**
      * A String or Array of glob patterns used to ignore test files that would otherwise be shown in your list of tests. Cypress uses minimatch with the options: {dot: true, matchBase: true}. We suggest using http://globtester.com to test what files would match.
      * @default "*.hot-update.js"
@@ -2318,6 +2318,11 @@ declare namespace Cypress {
      * @default "spec"
      */
     reporter: string
+    /**
+     * The delay between each keypress when calling `type()`. Default is 10
+     * @default 10
+     */
+    typeDelay: number,
     /**
      * Whether to take a screenshot on test failure when running headlessly or in CI
      * @default true
@@ -2449,7 +2454,7 @@ declare namespace Cypress {
      * Set the interval to `null` or 0 to disable forced garbage collections.
      * @default { runMode: 1, openMode: null }
      */
-    firefoxGcInterval: Nullable<number | { runMode: Nullable<number>, openMode: Nullable<number> }>
+    firefoxGcInterval: Nullable<number | {runMode: Nullable<number>, openMode: Nullable<number>}>
     /**
      * If `true`, Cypress will add `sameSite` values to the objects yielded from `cy.setCookie()`,
      * `cy.getCookie()`, and `cy.getCookies()`. This will become the default behavior in Cypress 5.0.
@@ -2688,7 +2693,7 @@ declare namespace Cypress {
      *      }
      *    })
      */
-    headers: { [header: string]: string }
+    headers: {[header: string]: string}
 
     /**
      * Called before your page has loaded all of its resources.
@@ -4469,7 +4474,7 @@ declare namespace Cypress {
 
   interface BrowserLaunchOptions {
     extensions: string[],
-    preferences: { [key: string]: any }
+    preferences: {[key: string]: any}
     args: string[],
   }
 
@@ -4739,7 +4744,7 @@ declare namespace Cypress {
     get(): LogConfig
     set<K extends keyof LogConfig>(key: K, value: LogConfig[K]): Log
     set(options: Partial<LogConfig>): Log
-    snapshot(name?: string, options?: { at?: number, next: string }): Log
+    snapshot(name?: string, options?: {at?: number, next: string}): Log
   }
 
   interface LogConfig {
@@ -4758,10 +4763,10 @@ declare namespace Cypress {
     allRequestResponses: any[]
     body: any
     duration: number
-    headers: { [key: string]: string }
+    headers: {[key: string]: string}
     isOkStatusCode: boolean
     redirectedToUrl: string
-    requestHeaders: { [key: string]: string }
+    requestHeaders: {[key: string]: string}
     status: number
     statusText: string
   }
@@ -4807,7 +4812,7 @@ declare namespace Cypress {
   }
 
   // Diff taken from https://github.com/Microsoft/TypeScript/issues/12215#issuecomment-311923766
-  type Diff<T extends string, U extends string> = ({ [P in T]: P } & { [P in U]: never } & { [x: string]: never })[T]
+  type Diff<T extends string, U extends string> = ({[P in T]: P} & {[P in U]: never} & {[x: string]: never})[T]
   type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>
 
   /**
